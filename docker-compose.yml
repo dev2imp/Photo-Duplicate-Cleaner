@@ -1,0 +1,10 @@
+# Kullanim:  INPUT_DIR=C:\Fotolar OUTPUT_DIR=C:\Fotolar_sonuc MODE=dry docker compose run --rm foto
+services:
+  foto:
+    build: .
+    volumes:
+      - ${INPUT_DIR:-./input}:/data/input
+      - ${OUTPUT_DIR:-./output}:/data/output
+    environment:
+      - MODE=${MODE:-dry}
+      - THRESHOLD=${THRESHOLD:-8}
